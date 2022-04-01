@@ -1,6 +1,30 @@
 # Otopark Otomasyonu
 
-## Gereksinimler
+## Projeyi Çalıştırma
+
+CarParkApplication Sınıfı çalıştırılarak proje ayağa kaldırılabilir.
+
+[http://localhost:8086](http://localhost:8086)
+ile backend ayağa kalkmaktadır
+
+Proje aynı zamanda Dockerize edilmiştir.
+
+### `mvn install`
+
+Bu komut ile proje build edilir.
+
+### `docker build --no-cache -t otopark-backend .`
+
+Bu Komut ile docker image oluşturulabilir
+
+### `docker run -d --name otopark-backend  -p 8086:8086 otopark-backend`
+
+Bu Komut ile proje docker container içerisinde çalışacaktır
+
+[http://localhost:8086](http://localhost:8086)
+ile backend ayağa kalkmaktadır
+
+## Problem
 
 -         Tüm işlemler REST servisleri üzerinden ilerleyecek.
 
@@ -30,31 +54,8 @@
 
 -         Araç yerleştirmesi en optimum şekilde yapılacaktır
 
-## Projeyi Çalıştırma
 
-CarParkApplication Sınıfı çalıştırılarak proje ayağa kaldırılabilir.
-
-[http://localhost:8086](http://localhost:8086) 
-ile backend ayağa kalkmaktadır
-
-Proje aynı zamanda Dockerize edilmiştir.
-
-### `mvn install`
-
-Bu komut ile proje build edilir.
-
-### `docker build --no-cache -t otopark-backend .`
-
-Bu Komut ile docker image oluşturulabilir
-
-### `docker run -d --name otopark-backend  -p 8086:8086 otopark-backend`
-
-Bu Komut ile proje docker container içerisinde çalışacaktır
-
-[http://localhost:8086](http://localhost:8086)
-ile backend ayağa kalkmaktadır
-
-## Yapılanlar
+## Notlar
 
 -       Güvenlik Jwt Token ile gerçekleştirilmiştir.
 
