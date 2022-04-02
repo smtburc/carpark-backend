@@ -26,7 +26,7 @@ Bu Komut ile proje docker container içerisinde çalışacaktır
 [http://localhost:8086](http://localhost:8086)
 ile backend ayağa kalkmaktadır
 
-## Problem
+## İstek
 
 -         Tüm işlemler REST servisleri üzerinden ilerleyecek.
 
