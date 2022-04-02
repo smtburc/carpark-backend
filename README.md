@@ -2,6 +2,8 @@
 
 ## Projeyi Çalıştırma
 
+### `java 17 ile yazılmıştır`
+
 CarParkApplication Sınıfı çalıştırılarak proje ayağa kaldırılabilir.
 
 [http://localhost:8086](http://localhost:8086)
@@ -71,9 +73,7 @@ ile backend ayağa kalkmaktadır
 -       Park Alanı Düz 50 birim uzunlukta olduğu varsayılmıştır. Burada Sıralı olarak park edilen araçlar görünmektedir.
         Eğer bir araba çıkış yaparsa oralarda boşluklar oluşabilir. Yeni gelen araç için araç uzunluğu ve sonraki ihtimaller 
         recursive bir algoritma ile hesaplanarak en minimum kayıp olacak şekilde yerleştirilmektedir.
-
+        
 -       Araç yerleştirme algoritması dinamik olarak yazılmıştır. Araç uzunlukları değişse bile algoritma çalışmaktadır.
 
--       Araç Uzunlukları ve Tipleri Enum olarak tutulmuştur. İstenirse Lookup Tablolarda da tutulabilir. 
-
--       Service sınıfları için Temel Seviyede Test Metodları da yazılmıştır.
+-       Service sınıfları ve bazı iş kuralları için Test Metodları da yazılmıştır.
