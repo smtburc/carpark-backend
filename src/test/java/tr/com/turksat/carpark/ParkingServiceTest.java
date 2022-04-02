@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class ParkingServiceTest {
 
     @AfterEach
-    public void endTest(){
+    public void endTest() {
         log.info("Test Ok");
     }
 
@@ -61,4 +61,69 @@ public class ParkingServiceTest {
 
     }
 
+    @Test
+    @Order(3)
+    void testCase1() {
+
+        //tüm parkı boşalt
+        parkingService.listParkingLot().forEach(x -> {
+            if(x.getPlate()!=null){
+                parkingService.vehicleOut(x.getPlate());
+            }
+        });
+
+        String basePlate = "06BBB";
+        for (int i = 0; i < 50; i++) {
+            parkingService.vehicleIn(basePlate + i, VehicleType.MOTORSIKLET.getId());
+        }
+
+        Exception exception=null;
+        try{
+            parkingService.vehicleIn(basePlate + 51, VehicleType.MOTORSIKLET.getId());
+        }catch (Exception e){
+            exception=e;
+        }
+        Assert.notNull(exception,"51 tane normal araç parkı yapılabildi");
+
+        //tüm parkı boşalt
+        parkingService.listParkingLot().forEach(x -> {
+            if(x.getPlate()!=null){
+                parkingService.vehicleOut(x.getPlate());
+            }
+        });
+
+        for (int i = 0; i < 41; i++) {
+            parkingService.vehicleIn(basePlate + i, VehicleType.JEEP.getId());
+        }
+
+        exception=null;
+        try{
+            parkingService.vehicleIn(basePlate + 42, VehicleType.JEEP.getId());
+        }catch (Exception e){
+            exception=e;
+        }
+        Assert.notNull(exception,"42 tane 1.2 lik araç parkı yapılabildi");
+
+        //tüm parkı boşalt
+        parkingService.listParkingLot().forEach(x -> {
+            if(x.getPlate()!=null){
+                parkingService.vehicleOut(x.getPlate());
+            }
+        });
+
+        for (int i = 0; i < 25; i++) {
+            parkingService.vehicleIn(basePlate + i, VehicleType.KAMYONET.getId());
+        }
+
+        exception=null;
+        try{
+            parkingService.vehicleIn(basePlate + 26, VehicleType.KAMYONET.getId());
+        }catch (Exception e){
+            exception=e;
+        }
+        Assert.notNull(exception,"26 tane Kamyonet lik araç parkı yapılabildi");
+
+    }
+
 }
+
