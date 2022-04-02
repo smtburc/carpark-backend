@@ -125,5 +125,35 @@ public class ParkingServiceTest {
 
     }
 
+    @Test
+    @Order(4)
+    void testCase2() {
+
+        //tüm parkı boşalt
+        parkingService.listParkingLot().forEach(x -> {
+            if(x.getPlate()!=null){
+                parkingService.vehicleOut(x.getPlate());
+            }
+        });
+
+        String basePlate = "06BBB";
+        for (int i = 0; i < 49; i++) {
+            parkingService.vehicleIn(basePlate + i, VehicleType.MOTORSIKLET.getId());
+        }
+
+        Exception exception=null;
+        try{
+            parkingService.vehicleIn(basePlate + 50, VehicleType.JEEP.getId());
+        }catch (Exception e){
+            exception=e;
+        }
+        Assert.notNull(exception,"1 Birimlik Boşluk varken 1.2 Birimlik Araç Eklenebildi");
+
+        parkingService.vehicleOut(basePlate+48);
+
+        Assert.isTrue(parkingService.vehicleIn(basePlate+51,VehicleType.KAMYONET.getId()),"2.2 birimlik boşluk varken 2 birimlik araç eklenemedi");
+
+    }
+
 }
 
