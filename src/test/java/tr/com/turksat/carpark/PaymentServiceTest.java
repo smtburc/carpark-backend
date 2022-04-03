@@ -74,24 +74,6 @@ public class PaymentServiceTest {
         //Üye ise %20 indirim kontrolü
         Assert.isTrue(paymentService.calculatePayment("11AAA11").compareTo(unitPrice.multiply(BigDecimal.valueOf(0.8)))==0,"Üye İndirimi Hesaplama Hatalı");
 
-        //5 gün öncesine kayıt oluşturma
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date());
-        cal.add(Calendar.DATE, -5);
-        Date dateBefore5day = cal.getTime();
-
-        VehiclePark obj=new VehiclePark();
-        obj.setFirstPoint(BigDecimal.valueOf(19.0));
-        obj.setEndPoint(BigDecimal.valueOf(20.0));
-        obj.setType(VehicleType.JEEP);
-        obj.setPlate("11AAA14");
-        obj.setEntryDate(dateBefore5day);
-        vehicleParkRepository.save(obj);
-
-        //5 gün öncesi + bugün = toplam 6 gün
-        Assert.isTrue(paymentService.calculatePayment("11AAA14").compareTo(unitPrice.multiply(BigDecimal.valueOf(6)))==0,"6 Gün için Daha Düşük Kaytası ile hesaplama hatalı");
-
-
 
     }
 

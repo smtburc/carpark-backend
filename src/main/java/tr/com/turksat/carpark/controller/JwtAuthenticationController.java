@@ -19,8 +19,9 @@ import tr.com.turksat.carpark.infrastructure.JwtTokenUtil;
 import tr.com.turksat.carpark.model.dto.JwtRequest;
 import tr.com.turksat.carpark.model.dto.JwtResponse;
 
-@RestController
 @CrossOrigin
+@RestController
+@RequestMapping("/api/v1")
 public class JwtAuthenticationController {
 
     @Autowired

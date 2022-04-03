@@ -13,6 +13,7 @@ import tr.com.turksat.carpark.service.PaymentService;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/v1")
 public class CarParkController {
 
     private final ParkingService parkingService;

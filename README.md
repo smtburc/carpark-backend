@@ -11,7 +11,7 @@ ile backend ayağa kalkmaktadır
 
 Proje aynı zamanda Dockerize edilmiştir.
 
-### `mvn install`
+### `mvn install -DskipTests`
 
 Bu komut ile proje build edilir.
 
